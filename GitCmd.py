@@ -50,7 +50,7 @@ class GitCmd(object):
 
 
 if __name__ == "__main__":
-    GitCmd(os.getcwd()).git()
-    print("what")
+    filepath=os.getcwd()
+    print(filepath)
+    GitCmd(filepath).git()
     os.system("pause")
-    pass
