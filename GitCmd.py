@@ -15,10 +15,10 @@ class GitCmd(object):
     """
 
     def __init__(self, filepath, rootpath="D:"):
-        print("current work directory" + os.getcwd())
+        print("current work directory: " + os.getcwd())
         os.chdir(rootpath)
         os.chdir(filepath)
-        print("into work repository" + os.getcwd())
+        print("into work repository: " + os.getcwd())
 
     def git(self):
         """
