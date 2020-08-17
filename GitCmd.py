@@ -53,4 +53,3 @@ if __name__ == "__main__":
     filepath=os.getcwd()
     print(filepath)
     GitCmd(filepath).git()
-    os.system("pause")
