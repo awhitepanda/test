@@ -1,21 +1,22 @@
 import os
+import re
 import time
-
 
 
 class GitCmd(object):
     """Git推送提交的构造函数
     获取当前工作路径
-    rootpath 更改工作路径到指定根目录
     filepath 更改工作路径到指定路径
+    rootpath 更改工作路径到指定根目录
     git指令：追踪所有文件
     git指令：提交更改
     git指令：推送到远程仓库
     保存日志
     """
 
-    def __init__(self, filepath, rootpath="D:"):
+    def __init__(self, filepath):
         print("current work directory: " + os.getcwd())
+        rootpath = str(re.search("(.*?:)", filepath).group(1))
         os.chdir(rootpath)
         os.chdir(filepath)
         print("into work repository: " + os.getcwd())
@@ -49,8 +50,12 @@ class GitCmd(object):
         log = os.popen(command).readlines()
 
 
-if __name__ == "__main__":
-    filepath=os.getcwd()
+def main():
+    filepath = os.getcwd().replace("\\", "/")
     print(filepath)
     GitCmd(filepath).git()
-    os.system("pause")
+    input("Press Any Key To Continue")
+
+
+if __name__ == '__main__':
+    main()
